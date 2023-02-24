@@ -1,7 +1,40 @@
-Create table termekek (
-	id int not null AUTO_INCREMENT PRIMARY key,
-    megnevezes varchar(40) not null UNIQUE,
-    ar numeric(10,0),
-  darab numeric(10,0)
-);
+CREATE TABLE webshop2.users (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  firstName VARCHAR(255) DEFAULT NULL,
+  lastName VARCHAR(255) DEFAULT NULL,
+  gender VARCHAR(255) DEFAULT NULL,
+  userName VARCHAR(255) DEFAULT NULL,
+  email VARCHAR(50) DEFAULT NULL,
+  password VARCHAR(255) DEFAULT NULL,
+  number INT(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB;
 
+CREATE TABLE webshop2.products (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) DEFAULT NULL,
+  price DECIMAL(10, 0) DEFAULT NULL,
+  quantity SMALLINT(6) DEFAULT NULL,
+  categoryId INT(11) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB;
+
+CREATE TABLE webshop2.basket (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  userId INT(11) DEFAULT NULL,
+  productId INT(11) DEFAULT NULL,
+  purchaseId INT(11) DEFAULT NULL,
+  quantityId INT(11) DEFAULT NULL,
+  date DATETIME DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB;
+
+CREATE TABLE webshop2.category (
+  id INT(11) NOT NULL AUTO_INCREMENT,
+  name VARCHAR(50) DEFAULT NULL,
+  PRIMARY KEY (id)
+)
+ENGINE = INNODB;
