@@ -594,6 +594,95 @@ app.put("/trips/:id", (req, res) => {
 });
 //#endregion trips
 
+
+
+
+
+
+//#region category
+app.get("/category", (req, res) => {
+  let sql = `
+  select * from category
+  `;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+
+    connection.query(sql, function (error, results, fields) {
+      sendingGet(res, error, results);
+    });
+
+    connection.release();
+  });
+});
+
+app.get("/categoryABC", (req, res) => {
+  let sql = `
+  select * from category
+    order by name
+  `;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+
+    connection.query(sql, function (error, results, fields) {
+      sendingGet(res, error, results);
+    });
+
+    connection.release();
+  });
+});
+//#endregion category
+
+
+//#region products
+app.get("/products", (req, res) => {
+  let sql = `
+  select * from products
+  `;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+
+    connection.query(sql, function (error, results, fields) {
+      sendingGet(res, error, results);
+    });
+
+    connection.release();
+  });
+});
+
+app.get("/productsABC", (req, res) => {
+  let sql = `
+  select * from products
+  order by name
+  `;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+
+    connection.query(sql, function (error, results, fields) {
+      sendingGet(res, error, results);
+    });
+
+    connection.release();
+  });
+});
+
+//#endregion products
+
 function mySanitizeHtml(data) {
   return sanitizeHtml(data, {
     allowedTags: [],

@@ -174,3 +174,18 @@ Content-Type: application/json
     "date": "2022.10.13 01:35:00",
     "carId": 2
 }
+
+
+### _____________________SAJAT_______________________
+### get categories
+get http://localhost:3000/category
+### get categoriesABC
+get http://localhost:3000/categoryABC
+
+###get products
+get http://localhost:3000/products
+
+###get productsABC
+get http://localhost:3000/productsABC
+
+
