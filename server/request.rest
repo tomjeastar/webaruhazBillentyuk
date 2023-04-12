@@ -177,10 +177,33 @@ Content-Type: application/json
 
 
 ### _____________________SAJAT_______________________
+### ____________________Category_____________________
 ### get categories
 get http://localhost:3000/category
 ### get categoriesABC
 get http://localhost:3000/categoryABC
+
+###post category
+post http://localhost:3000/category
+Content-Type: application/json
+
+{
+    "name": "gngndgskjn"
+}
+
+###delete category
+delete http://localhost:3000/category/11
+
+###put category
+put http://localhost:3000/category/7
+Content-Type: application/json
+
+{
+    "name": "Mercedes3"
+}
+
+  
+### ______________________Products___________________
 
 ###get products
 get http://localhost:3000/products
@@ -189,3 +212,27 @@ get http://localhost:3000/products
 get http://localhost:3000/productsABC
 
 
+###post products
+post http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name": "gngndgskjn",
+    "price": "1023",
+    "quantity": "405",
+    "categoryId": "1"
+}
+
+###delete products
+delete http://localhost:3000/products/35
+
+###put products
+put http://localhost:3000/products/36
+Content-Type: application/json
+
+{
+    "name": "kkjasffkjafs",
+    "price": "140",
+    "quantity": "40",
+    "categoryId": "2"
+}

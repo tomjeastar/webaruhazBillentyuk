@@ -638,6 +638,78 @@ app.get("/categoryABC", (req, res) => {
     connection.release();
   });
 });
+
+app.post("/category", (req, res) => {
+  const newR = {
+    name: sanitizeHtml(req.body.name)
+  };
+  let sql = `
+    INSERT INTO category 
+    (name)
+    VALUES
+    (?)
+    `;
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(
+      sql,
+      [newR.name],
+      function (error, result, fields) {
+        sendingPost(res, error, result, newR);
+      }
+    );
+    connection.release();
+  });
+});
+
+app.delete("/category/:id", (req, res) => {
+  const id = req.params.id;
+
+  let sql = `
+    DELETE FROM category
+    WHERE id = ?`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, [id], function (error, result, fields) {
+      sendingDelete(res, error, result, id);
+    });
+    connection.release();
+  });
+});
+
+app.put("/category/:id", (req, res) => {
+  const id = req.params.id;
+  const newR = {
+    name: sanitizeHtml(req.body.name)
+  };
+  let sql = `
+    UPDATE category SET
+    name = ?
+    WHERE id = ?
+      `;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(
+      sql,
+      [newR.name, id],
+      function (error, result, fields) {
+        sendingPut(res, error, result, id, newR);
+      }
+    );
+    connection.release();
+  });
+});
 //#endregion category
 
 
@@ -680,6 +752,88 @@ app.get("/productsABC", (req, res) => {
     connection.release();
   });
 });
+
+app.post("/products", (req, res) => {
+  const newR = {
+    name: sanitizeHtml(req.body.name),
+    price: sanitizeHtml(req.body.price),
+    quantity: sanitizeHtml(req.body.quantity),
+    categoryId: sanitizeHtml(req.body.categoryId)
+  };
+  let sql = `
+    INSERT INTO products 
+    (name, price, quantity, categoryId)
+    VALUES
+    (?, ?, ?, ?)
+    `;
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(
+      sql,
+      [newR.name, newR.price, newR.quantity, newR.categoryId],
+      function (error, result, fields) {
+        sendingPost(res, error, result, newR);
+      }
+    );
+    connection.release();
+  });
+});
+
+app.delete("/products/:id", (req, res) => {
+  const id = req.params.id;
+
+  let sql = `
+    DELETE FROM products
+    WHERE id = ?`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, [id], function (error, result, fields) {
+      sendingDelete(res, error, result, id);
+    });
+    connection.release();
+  });
+});
+
+app.put("/category/:id", (req, res) => {
+  const id = req.params.id;
+  const newR = {
+    name: sanitizeHtml(req.body.name),
+    price: sanitizeHtml(req.body.price),
+    quantiy: sanitizeHtml(req.body.quantity),
+    categoryId: sanitizeHtml(req.body.categoryId)
+  };
+  let sql = `
+    UPDATE products SET
+    name = ?,
+    price = ?,
+    quantity = ?,
+    categoryId = ?
+    WHERE id = ?
+      `;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(
+      sql,
+      [newR.name, newR.price, newR.quantiy, newR.categoryId, id],
+      function (error, result, fields) {
+        sendingPut(res, error, result, id, newR);
+      }
+    );
+    connection.release();
+  });
+});
+
 
 //#endregion products
 

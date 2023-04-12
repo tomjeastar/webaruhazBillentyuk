@@ -9,3 +9,10 @@ CREATE DATABASE webshop2
 #get http://localhost:3000/categoryABC
    select * from category
     order by name;
+
+  #get http://localhost:3000/products
+    select * from products;
+
+  #get http://localhost:3000/productsABC
+    select * from products
+    order by name;
