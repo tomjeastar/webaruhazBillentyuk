@@ -1,15 +1,18 @@
 .my-container {
     max-width: 1200px;
     border: 1px dashed black;
-    background-color: rgba(250, 150, 1, 0.8);
+    background-color: rgba(100, 100, 100, 0.9);
+    color:plum
   }
-  
+  h1{
+    border: 1px solid black;
+  }
   .my-width-100 {
     width: 100px;
   }
 
   body {
-    background-image: url(../public/background.png);
+    background-image: url(https://i.pinimg.com/originals/a2/94/b5/a294b593769b6bf61b55c152032e7459.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;

@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/"
         @click="onClickMenu(1)"
-      >Webshop</router-link>
+      ></router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -17,20 +17,20 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
+          <li class="nav-item" style="font-size: 20px;">
             <router-link class="nav-link active" aria-current="page" to="/"
             :class="{active: menuState === 2}"
             @click="onClickMenu(2)"
               >HOME</router-link
             >
           </li>
-          <li class="nav-item">
+          <li class="nav-item" style="font-size: 20px;">
             <router-link class="nav-link" to="/about"
             :class="{active: menuState === 3}"
             @click="onClickMenu(3)"
             >About</router-link>
           </li>
-          <li class="nav-item dropdown">
+          <!-- <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -61,8 +61,8 @@
                 >
               </li>
             </ul>
-          </li>
-          <li class="nav-item dropdown">
+          </li> -->
+          <!-- <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
               href="#"
@@ -88,8 +88,8 @@
                 >
               </li>
             </ul>
-          </li>
-          <li class="nav-item" v-if="!storeLogin.loginSuccess">
+          </li> -->
+          <li class="nav-item"  style="font-size: 20px;" v-if="!storeLogin.loginSuccess">
             <router-link class="nav-link" to="/login">Login</router-link>
           </li>
           <li class="nav-item" v-if="storeLogin.loginSuccess" @click="logout()">

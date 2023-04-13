@@ -18,14 +18,14 @@
           </thead>
           <tbody>
             <tr
-              v-for="(car, index) in cars"
-              :key="`car${index}`"
-              :class="currentRowBackground(car.id)"
-              @click="onClikRow(car.id)"
+              v-for="(product, index) in products"
+              :key="`product${index}`"
+              :class="currentRowBackground(product.id)"
+              @click="onClikRow(product.id)"
             >
-              <td>{{ car.name }}</td>
-              <td>{{ car.licenceNumber }}</td>
-              <td>{{ car.driverName }}</td>
+              <td>{{ product.name }}</td>
+              <td>{{ product.licenceNumber }}</td>
+              <td>{{ product.driverName }}</td>
             </tr>
           </tbody>
         </table>
@@ -36,7 +36,7 @@
       <div class="col-md-7">
         <h2>Taxi fuvarkezelése</h2>
         <hr />
-        <div v-if="currentCarId">
+        <div v-if="currentproductId">
           <h3>Új fuvar</h3>
           <form class="row g-3 needs-validation" novalidate>
             <!-- A fuvar dátumideje -->
@@ -79,7 +79,7 @@
 
           <h3>Eddigi fuvarok</h3>
           <ul>
-            <li v-for="(trip, index) in tripsByCarId" :key="`trip${index}`">
+            <li v-for="(trip, index) in tripsByproductId" :key="`trip${index}`">
               {{ trip.date }}: {{ trip.numberOfMinits }} perc
               <span
                 class="ms-2 my-delete-hover"
@@ -115,10 +115,10 @@ const storeUrl = useUrlStore();
 const storeLogin = useLoginStore();
 
 class Trip {
-  constructor(numberOfMinits = null, date = null, carId = null) {
+  constructor(numberOfMinits = null, date = null, productId = null) {
     this.numberOfMinits = numberOfMinits;
     this.date = date;
-    this.carId = carId;
+    this.productId = productId;
   }
 }
 
@@ -127,20 +127,20 @@ export default {
     return {
       storeUrl,
       storeLogin,
-      cars: [],
-      currentCarId: null,
+      products: [],
+      currentproductId: null,
       currentTripId: null,
-      tripsByCarId: [],
+      tripsByproductId: [],
       newTrip: new Trip(),
       yesNoShow: false,
     };
   },
   mounted() {
-    this.getCarsWithDriversReal();
+    this.getproductsWithDriversReal();
   },
   methods: {
-    async getCarsWithDriversReal() {
-      let url = this.storeUrl.urlCarsWithDriversReal;
+    async getproductsWithDriversReal() {
+      let url = this.storeUrl.urlproductsWithDriversReal;
       const config = {
         method: "GET",
         headers: {
@@ -149,10 +149,10 @@ export default {
       };
       const response = await fetch(url, config);
       const data = await response.json();
-      this.cars = data.data;
+      this.products = data.data;
     },
-    async getTripsByCarId() {
-      let url = `${this.storeUrl.urlTripsByCarId}/${this.currentCarId}`;
+    async getTripsByproductId() {
+      let url = `${this.storeUrl.urlTripsByproductId}/${this.currentproductId}`;
       const config = {
         method: "GET",
         headers: {
@@ -161,12 +161,12 @@ export default {
       };
       const response = await fetch(url, config);
       const data = await response.json();
-      this.tripsByCarId = data.data;
+      this.tripsByproductId = data.data;
       this.newTrip = new Trip();
     },
     async postTrip() {
       let url = this.storeUrl.urlTrips;
-      this.newTrip.carId = this.currentCarId;
+      this.newTrip.productId = this.currentproductId;
       const body = JSON.stringify(this.newTrip);
       const config = {
         method: "POST",
@@ -177,11 +177,11 @@ export default {
         body: body,
       };
       const response = await fetch(url, config);
-      this.getTripsByCarId();
+      this.getTripsByproductId();
     },
     async deleteTrip(id) {
       let url = `${this.storeUrl.urlTrips}/${id}`;
-      this.newTrip.carId = this.currentCarId;
+      this.newTrip.productId = this.currentproductId;
       const body = JSON.stringify(this.newTrip);
       const config = {
         method: "DELETE",
@@ -192,14 +192,14 @@ export default {
         body: body,
       };
       const response = await fetch(url, config);
-      this.getTripsByCarId();
+      this.getTripsByproductId();
     },
     currentRowBackground(id) {
-      return this.currentCarId == id ? "my-bg-current-row" : "";
+      return this.currentproductId == id ? "my-bg-current-row" : "";
     },
     onClikRow(id) {
-      this.currentCarId = id;
-      this.getTripsByCarId();
+      this.currentproductId = id;
+      this.getTripsByproductId();
       // this.$refs.date.focus();
       // this.$refs.date.showPicker();
     },

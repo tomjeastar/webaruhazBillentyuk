@@ -1,24 +1,59 @@
 <template>
   <div>
-    <h1>Home</h1>
-
-        <transition name="move" appear>
-          <div style="margin-right: 20px" @click="openDialog">
-            <b-icon-cart-4 v-if="show" class="chart" />
-            <b-badge v-if="productCount > 0" variant="light">{{ productCount }}</b-badge>
+    <p style="text-align: center;">Created By: Boros Tamás©</p>
+        <div class="card" >
+          <!-- <a href="#" class="btn btn-warning me-2" >★	</a> -->
+          <img class="card-img-top" src="https://www.howtogeek.com/wp-content/uploads/2022/04/rgb-lit-gaming-mechanical-keyboard.jpg?height=200p&trim=2,2,2,2" alt="Card img">
+          <div class="card-body" v-for="(product, index) in products" :key="`product${index}`">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text">Switch</p>
+            <a href="#" class="btn btn-dark">$149.99</a>
           </div>
-        </transition>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus praesentium pariatur modi molestiae quidem recusandae veritatis, distinctio, ea fuga quo ex deserunt similique adipisci officia aliquid animi dolores amet cumque totam. Rem dolores accusantium impedit, quo laborum, corrupti sapiente ad labore cumque odio minus doloribus eligendi. Temporibus cum voluptates doloremque modi eos quos veniam, neque cupiditate eaque molestias minima placeat ut repudiandae quia fuga incidunt. Nulla accusantium dignissimos aliquid atque eaque, nostrum soluta ipsa suscipit. Consequuntur harum, quasi, quis assumenda libero pariatur cum dicta iste asperiores, expedita facilis voluptates? Quam dignissimos nesciunt dolorum deserunt tempore tempora, eveniet corporis nulla quis reiciendis nisi blanditiis excepturi odit illum dolor neque consequuntur iste eos? Corporis incidunt neque ut consectetur ullam sint adipisci vel soluta eligendi saepe provident dolorem quaerat earum amet reprehenderit unde beatae cumque aut, nisi illum. Veritatis, nisi. Illum, illo magni, ipsam, excepturi nesciunt sunt nulla rem minima quam aut a est officiis optio saepe. Provident omnis, alias eius quis totam, ullam quidem voluptatum vero in voluptate ipsam tenetur nobis doloremque veritatis numquam qui, eaque vitae asperiores placeat similique temporibus. Praesentium amet vitae, fuga, delectus dicta ullam id animi sit dolorem hic consectetur asperiores tenetur voluptas accusantium officia voluptatem. Esse, temporibus?</p>
+        </div>
   </div>
 </template>
 
-<script setup>
-import Counter from "@/components/Counter.vue";
-import { useCounterStore } from "@/stores/counter";
-const storeCounter = useCounterStore();
+<script>
+// import { useUrlStore } from "@/stores/url";
+// import { useLoginStore } from "@/stores/login";
+// const storeUrl = useUrlStore();
+// const storeLogin = useLoginStore();
+// export default {
+//   data() {
+//     return {
+//       storeUrl,
+//       storeLogin,
+//       products: [],
+//     };
+//   },
+//   mounted() {
+//     this.getProductsList();
+//   },
+//   methods: {
+//     async getProductsList() {
+//       console.log(url);
+//       let url = this.storeUrl.urProducts;
+//       const config = {
+//         method: "GET",
+//         headers: {
+//           Authorization: `Bearer ${this.storeLogin.accessToken}`,
+//         },
+//       };
+//       const response = await fetch(url, config);
+//       const data = await response.json();
+//       this.products = data.data;
+//     },
+//   },
+// };
+
 </script>
 
 <style>
 
+
+.card{
+  width: 18rem; 
+  margin: 30px; 
+  border: 3px solid black;
+}
 </style>

@@ -26,7 +26,7 @@
       </thead>
       <tbody>
         <tr
-          v-for="(car, index) in cars"
+          v-for="(car, index) in Products"
           :key="`car${index}`"
           :class="currentRowBackground(car.id)"
           @click="onClikRow(car.id)"
@@ -222,7 +222,7 @@ export default {
     return {
       storeUrl,
       storeLogin,
-      cars: [],
+      Products: [],
       editableCar: new Car(),
       modal: null,
       form: null,
@@ -232,7 +232,7 @@ export default {
     };
   },
   mounted() {
-    this.getCars();
+    this.getProducts();
     this.getFreeDriversAbc();
     this.modal = new bootstrap.Modal(document.getElementById("modalCar"), {
       keyboard: false,
@@ -241,8 +241,8 @@ export default {
     this.form = document.querySelector(".needs-validation");
   },
   methods: {
-    async getCars() {
-      let url = this.storeUrl.urlCarsWithDrivers;
+    async getProducts() {
+      let url = this.storeUrl.urlProductsWithDrivers;
       const config = {
         method: "GET",
         headers: {
@@ -251,14 +251,14 @@ export default {
       };
       const response = await fetch(url, config);
       const data = await response.json();
-      this.cars = data.data;
-      // this.cars = data.data.map((car) => {
+      this.Products = data.data;
+      // this.Products = data.data.map((car) => {
       //   car.outOfTraffic = car.outOfTraffic === 1;
       //   return car;
       // });
     },
     async getCarById(id) {
-      let url = `${this.storeUrl.urlCars}/${id}`;
+      let url = `${this.storeUrl.urlProducts}/${id}`;
       const config = {
         method: "GET",
         headers: {
@@ -284,7 +284,7 @@ export default {
     },
 
     async postCar() {
-      let url = this.storeUrl.urlCars;
+      let url = this.storeUrl.urlProducts;
       const body = JSON.stringify(this.editableCar);
       const config = {
         method: "POST",
@@ -295,11 +295,11 @@ export default {
         body: body,
       };
       const response = await fetch(url, config);
-      this.getCars();
+      this.getProducts();
     },
     async putCar() {
       const id = this.editableCar.id;
-      let url = `${this.storeUrl.urlCars}/${id}`;
+      let url = `${this.storeUrl.urlProducts}/${id}`;
       const body = JSON.stringify(this.editableCar);
       const config = {
         method: "PUT",
@@ -310,10 +310,10 @@ export default {
         body: body,
       };
       const response = await fetch(url, config);
-      this.getCars();
+      this.getProducts();
     },
     async deleteCar(id) {
-      let url = `${this.storeUrl.urlCars}/${id}`;
+      let url = `${this.storeUrl.urlProducts}/${id}`;
       const config = {
         method: "DELETE",
         headers: {
@@ -322,7 +322,7 @@ export default {
         },
       };
       const response = await fetch(url, config);
-      this.getCars();
+      this.getProducts();
     },
     onClikRow(id) {
       this.currentId = id;

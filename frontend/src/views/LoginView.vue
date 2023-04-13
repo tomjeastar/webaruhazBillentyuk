@@ -21,7 +21,7 @@
       />
     </div>
     <!-- Button login -->
-    <button type="button" class="btn btn-primary mb-3" @click="login()">
+    <button type="button" class="btn btn-dark mb-3" @click="login()">
       Login
     </button>
 

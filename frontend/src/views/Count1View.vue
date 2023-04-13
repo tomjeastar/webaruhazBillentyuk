@@ -1,5 +1,6 @@
 <template>
   <div class="mt-3 mb-3">
+    <h1>COUNTER 1</h1>
     <div class="d-flex align-items-center mt-3 mb-3">
       <button
         class="btn btn-outline-primary"

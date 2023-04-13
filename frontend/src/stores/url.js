@@ -19,9 +19,13 @@ export const useUrlStore = defineStore({
     urlCars(){
       return `${this.urlData}/cars`
     },
-    urlCarsWithTrips(){
-      return `${this.urlData}/carsWithTrips`
+
+
+    urlProducts(){
+      return `${this.urlData}/products`
     },
+
+
     urlCarsTrips(){
       return `${this.urlData}/carsTrips`
     },

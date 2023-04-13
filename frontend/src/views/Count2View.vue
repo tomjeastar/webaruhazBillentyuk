@@ -1,7 +1,7 @@
 
 <template>
   <div class="home">
-    <h1>About</h1>
+    <h1>COUNTER 2</h1>
     <button class="btn btn-outline-secondary"
     @click="storeCounter.increaseCount"
     >
