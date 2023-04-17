@@ -4,21 +4,21 @@ delete from users;
 
 
 insert into users (id,firstName,lastName,gender,userName, email, password, number) VALUES
-  (1,'Kovács','Dávid','Man','kovacsdavid324','kovacsdavid324@gmail.com','kovacsdavid123',0),
+  (1,'Kovï¿½cs','Dï¿½vid','Man','kovacsdavid324','kovacsdavid324@gmail.com','kovacsdavid123',0),
   (2,'Varga','Zsolt','Man','vargazsolt643','vargazsolt643@gmail.com','vargazsoltasd',0),
-  (3,'Szabó','Éva','Woman','szaboeva23','szaboeva23@gmail.com','szaboeva9999',0),
-  (4,'Eszterházy','Ottó','Man','eszterhazyotto77','eszterhazyotto77@gmail.com','ottoeszterhazy333',0),
+  (3,'Szabï¿½','ï¿½va','Woman','szaboeva23','szaboeva23@gmail.com','szaboeva9999',0),
+  (4,'Eszterhï¿½zy','Ottï¿½','Man','eszterhazyotto77','eszterhazyotto77@gmail.com','ottoeszterhazy333',0),
   (5,'Nagy','Ferenc','Man','nagyferenc634','ferencnagy5121@gmail.com','nagyferenc0',1),
-  (6,'Szabó','Albert','Man','szaboalbert99','szaboalbert012@gmail.com','szaboalbert321',0),
-  (7,'Rézmûves','Ilona','Woman','rezmuvesilona4567','rezmuvesilona4567@gmail.com','rezmuvesilona432',0),
-  (8,'Kovács','Károly','Man','kovacskaroly111','kovacskaroly111@gmail.com','kovacskaroly623',1),
-  (9,'Kiss','Zoltán','Man','kisszoli1','kisszoltan1991@gmail.com','kisszoltan123',1),
-  (10,'Veréb','Sándor','Man','verebsandor55','sandorvereb1986@gmail.com','verebsandor123',0),
+  (6,'Szabï¿½','Albert','Man','szaboalbert99','szaboalbert012@gmail.com','szaboalbert321',0),
+  (7,'Rï¿½zmï¿½ves','Ilona','Woman','rezmuvesilona4567','rezmuvesilona4567@gmail.com','rezmuvesilona432',0),
+  (8,'Kovï¿½cs','Kï¿½roly','Man','kovacskaroly111','kovacskaroly111@gmail.com','kovacskaroly623',1),
+  (9,'Kiss','Zoltï¿½n','Man','kisszoli1','kisszoltan1991@gmail.com','kisszoltan123',1),
+  (10,'Verï¿½b','Sï¿½ndor','Man','verebsandor55','sandorvereb1986@gmail.com','verebsandor123',0),
   (11,'Szegedi','Imre','Man','szegediimre512','szegediimre1999@gmail.com','imreszegedi6000',0),
-  (12,'Vasvári','Olga','Woman','vasvariolga152','vasvariolga863235@gmail.com','vasvariolga47',1),
-  (13,'Szolnoki','Tamás','Man','tamasszolnoki6','tamasszolnoki111@gmail.com','tamasszolnoki04',0),
-  (14,'Heves','Pál','Man','palheves77','palheves123@gmail.com','hevespal000',0),
-  (15,'Tasnádi','Alex','Man','alextasnadi612','alextasnadi47@gmail.com','tasnadialex123',1);
+  (12,'Vasvï¿½ri','Olga','Woman','vasvariolga152','vasvariolga863235@gmail.com','vasvariolga47',1),
+  (13,'Szolnoki','Tamï¿½s','Man','tamasszolnoki6','tamasszolnoki111@gmail.com','tamasszolnoki04',0),
+  (14,'Heves','Pï¿½l','Man','palheves77','palheves123@gmail.com','hevespal000',0),
+  (15,'Tasnï¿½di','Alex','Man','alextasnadi612','alextasnadi47@gmail.com','tasnadialex123',1);
 
 
 insert into products (id, name, price, quantity, categoryId) VALUES

@@ -27,38 +27,39 @@ export default {
       storeUrl,
       storeLogin,
       products: [],
-      return{
+      return:{
         images: [
-          { url: '../public/1.jpg', alt: 'I love you nature' },
-                { url: '../public/2.jpg', alt: 'Now with dog - Rosé' },
-                { url: '../public/3.jpg', alt: 'Jeg er i Danmark' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/4.jpg', alt: 'Badabimbadabum' },
-                { url: '../public/5.jpg', alt: 'Goodmorning el mundo' },
-                { url: '../public/6.jpg', alt: 'My white and rosé with paella' },
-                { url: '../public/7.jpg', alt: 'Hopla' },
-                { url: '../public/8.jpg', alt: 'Watering by night' },
-                { url: '../public/9.jpg', alt: 'Life aint so bad at all...' },
-                { url: '../public/10.jpg', alt: 'My whitewine' },
-                { url: '../public/11jpg', alt: 'First time for everything...winefair!' },
-                { url: '../public/12.jpg', alt: 'Lost around 20% of this years yield!' }
+          // { url: products.name`.jpg`, alt: products.name},
+                 { url: '../public/Redragon Kumara RGB.jpg', alt: 'Redragon Kumara RGB' },
+                 { url: '../public/Logitech G413.jpg', alt: 'Logitech G413' },
+                 { url: '../public/Genius Scorpion K215.jpg', alt: 'Genius Scorpion K215' },
+                 { url: '../public/Logitech K400 Plus.jpg', alt: 'Logitech K400 Plus' },
+                 { url: '../public/SPC Gear GK630K.jpg', alt: 'SPC Gear GK630K' },
+                 { url: '../public/Keychron K3.jpg', alt: 'Keychron K3' },
+                 { url: '../public/Tesoro Tizona Spectrum.jpg', alt: 'Tesoro Tizona Spectrum' },
+                 { url: '../public/White Shark Commandos.jpg', alt: 'White Shark Commandos' },
+                 { url: '../public/White Shark GK210.jpg', alt: 'White Shark GK210' },
+                 { url: '../public/ASUS ROG Claymore II.jpg', alt: 'ASUS ROG Claymore II' },
+                 { url: '../public/Hama uRage Exodus 900.jpg', alt: 'Hama uRage Exodus 900' },
+                 { url: '../public/SteelSeries Apex 3 TKL.jpg', alt: 'SteelSeries Apex 3 TKL' },
+                 { url: '../public/Razer BlackWidow V3 Tenkeyless.jpg', alt: 'Razer BlackWidow V3 Tenkeyless' },
+                 { url: '../public/ASUS TUF Gaming K1.jpg', alt: 'ASUS TUF Gaming K1' },
+                 { url: '../public/Razer Huntsman Mini.jpg', alt: 'Razer Huntsman Mini' },
+                 { url: '../public/ASUS ROG Strix Scope.jpg', alt: 'ASUS ROG Strix Scope' },
+                 { url: '../public/Logitech G PRO GX Clicky.jpg', alt: 'Logitech G PRO GX Clicky' },
+                 { url: '../public/Redragon Karura K502.jpg', alt: 'Redragon Karura K502' },
+                 { url: '../public/Ducky One 2 SF.jpg', alt: 'Ducky One 2 SF' },
+                 { url: '../public/Redragon Mitra K551.jpg', alt: 'Redragon Mitra K551' },
+                 { url: '../public/Redragon Kumara 2 k552.jpg', alt: 'Redragon Kumara 2 k552' },
+                 { url: '../public/Spirit Of Gamer Pro K5.jpg', alt: 'Spirit Of Gamer Pro K5' },
+                 { url: '../public/HyperX Alloy Origins 60.jpg', alt: 'HyperX Alloy Origins 60' },
+                 { url: '../public/Razer Cynosa Lite US.jpg', alt: 'Razer Cynosa Lite US' },
+                 { url: '../public/Hama uRage Illuminated 2.jpg', alt: 'Hama uRage Illuminated 2' },
+                 { url: '../public/HyperX Origins Core.jpg', alt: 'HyperX Origins Core' },
+                 { url: '../public/Cooler Master MK730.jpg', alt: 'Cooler Master MK730' },
+                 { url: '../public/Corsair K60 RGB.jpg', alt: 'Corsair K60 RGB' },
+                 { url: '../public/Razer Pro Type US.jpg', alt: 'Razer Pro Type US' },
+                 { url: '../public/SteelSeries Apex 7.jpg', alt: 'SteelSeries Apex 7' }
         ]
       }
 
@@ -66,6 +67,7 @@ export default {
   },
   mounted() {
     this.getProductsList();
+    // this.getImagesList();
   },
   methods: {
     async getProductsList() {
@@ -81,6 +83,19 @@ export default {
       this.products = data.data;
       console.log(url);
     },
+    // async getImagesList() {
+    //   let url = this.images.url;
+    //   const config = {
+    //     method: "GET",
+    //     headers: {
+    //       Authorization: `Bearer ${this.storeLogin.accessToken}`,
+    //     },
+    //   };
+    //   const response = await fetch(url, config);
+    //   const data = await response.json();
+    //   this.images = data.data;
+    //   console.log(url);
+    // },
   },
 };
 
