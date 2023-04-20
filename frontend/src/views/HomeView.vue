@@ -5,7 +5,7 @@
           <div class="card" style="border: 2px solid purple;">
             <div class="card-body " v-for="(product, index) in products" :key="`product${index}`">
               <h5 class="card-title">{{product.name}}</h5>
-              <img v-for="image in images" :src="images.url" :alt="images.alt">
+              <img class="kep" :src="'../../public/'+ product.name+ '.jpg'" alt="">
               <a href="#" class="btn btn-success">${{product.price}}</a>
               <a href="#" class="btn btn-dark" style="margin: 5px;">🛒</a>
             </div>
@@ -102,7 +102,10 @@ export default {
 </script>
 
 <style>
-
+.kep{
+  min-width: 300px;
+max-width: 300px;
+}
 
 .card{
   width: 18rem; 
