@@ -25,6 +25,9 @@ export const useUrlStore = defineStore({
       return `${this.urlData}/products`
     },
 
+    urlBasket(){
+      return `${this.urlData}/basket`
+    },
 
     urlCarsTrips(){
       return `${this.urlData}/carsTrips`

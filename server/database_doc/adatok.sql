@@ -1,4 +1,4 @@
-delete from category;
+﻿delete from category;
 delete from products;
 delete from users;
 
@@ -63,4 +63,15 @@ select * from products;
 select * from category;
 select * from users;
 
+#jelszó berakása
 
+update users set password = '$2b$10$2MBPeVIq4W0PyW2eu.tHI.dO04Sp7Tj1fa0KsL4fAGRicaSvXu.wK';
+
+
+#kosárba rakás
+
+insert into basket (userId, productId, purchaseId, quantityId, date) values (1, 1 , 100, 5, now()), (1, 2 , 100, 5, now()), (1, 3 , 100, 5, now());
+insert into basket (userId, productId, purchaseId, quantityId, date) values (2, 1 , 101, 5, now()), (2, 2 , 101, 5, now()), (2, 3 , 101, 5, now());
+select * from basket;
+
+delete from basket;

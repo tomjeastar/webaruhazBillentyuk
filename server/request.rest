@@ -3,7 +3,7 @@ post http://localhost:4000/login
 Content-Type: application/json
 
 {
-    "userName": "feri",
+    "userName": "admin",
     "password": "jozsi123"
 }
 
@@ -41,13 +41,13 @@ post http://localhost:3000/users
 Content-Type: application/json
 
 {
-    "firstName": "h",
-    "lastName": "Fehér",
+    "firstName": "Zsolt",
+    "lastName": "Admin",
     "gender": "férfi",
-    "userName": "h1",
+    "userName": "admin",
     "email": "feher.h1@gmail.com",
     "password": "jozsi123",
-    "number": 33333333
+    "number": 1
 }
 
 ### User módosítása
@@ -236,3 +236,8 @@ Content-Type: application/json
     "quantity": "40",
     "categoryId": "2"
 }
+
+### _______________basket___________________
+
+get http://localhost:3000/basket
+

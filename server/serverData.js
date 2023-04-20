@@ -837,6 +837,49 @@ app.put("/category/:id", (req, res) => {
 
 //#endregion products
 
+//#region bkasket
+app.get("/basket", (req, res) => {
+  let sql = `SELECT * FROM basket`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, async function (error, results, fields) {
+      sendingGet(res, error, results);
+    });
+    connection.release();
+  });
+});
+
+app.get("/basket/:purchaseId", (req, res) => {
+  const purchaseId = req.params.purchaseId;
+  let sql = `
+  select * from basket where purchaseId = ?;`;
+
+  pool.getConnection(function (error, connection) {
+    if (error) {
+      sendingGetError(res, "Server connecting error!");
+      return;
+    }
+    connection.query(sql, [purchaseId], async function (error, results, fields) {
+      if (error) {
+        const message = "Cars sql error";
+        sendingGetError(res, message);
+        return;
+      }
+      if (results.length == 0) {
+        const message = `Not found id: ${purchaseId}`;
+        sendingGetError(res, message);
+        return;
+      }
+      sendingGetById(res, null, results, purchaseId);
+    });
+    connection.release();
+  });
+});
+//#endregion basket
 function mySanitizeHtml(data) {
   return sanitizeHtml(data, {
     allowedTags: [],
